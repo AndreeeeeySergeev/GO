@@ -1,8 +1,8 @@
 package service
 
 import (
-	"bank-service/internal/config"
-	"bank-service/pkg/encryption"
+	"bank-system/internal/config"
+	"bank-system/pkg/encryption"
 )
 
 type EncryptionService interface {

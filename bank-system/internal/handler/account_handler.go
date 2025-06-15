@@ -7,9 +7,9 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"bank-service/internal/middleware"
-	"bank-service/internal/models"
-	"bank-service/internal/service"
+	"bank-system/internal/middleware"
+	"bank-system/internal/models"
+	"bank-system/internal/service"
 )
 
 func (h *Handler) CreateAccount(w http.ResponseWriter, r *http.Request) {

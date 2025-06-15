@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"strings"
 
-	"bank-service/internal/service"
+	"bank-system/internal/service"
 )
 
 type userIDKey string

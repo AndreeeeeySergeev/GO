@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"bank-service/internal/models"
-	"bank-service/internal/service"
+	"bank-system/internal/models"
+	"bank-system/internal/service"
 )
 
 func (h *Handler) Register(w http.ResponseWriter, r *http.Request) {

@@ -5,7 +5,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"bank-service/internal/service"
+	"bank-system/internal/service"
 )
 
 type CreditScheduler struct {

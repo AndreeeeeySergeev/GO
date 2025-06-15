@@ -4,8 +4,8 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/sirupsen/logrus"
 
-	"bank-service/internal/middleware"
-	"bank-service/internal/service"
+	"bank-system/internal/middleware"
+	"bank-system/internal/service"
 )
 
 type Handler struct {

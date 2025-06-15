@@ -3,7 +3,7 @@ package handler
 import (
 	"net/http"
 
-	"bank-service/internal/middleware"
+	"bank-system/internal/middleware"
 )
 
 func (h *Handler) GetTransactionAnalytics(w http.ResponseWriter, r *http.Request) {

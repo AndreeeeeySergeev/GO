@@ -1,8 +1,8 @@
 package service
 
 import (
-	"bank-service/internal/config"
-	"bank-service/internal/repository"
+	"bank-system/internal/config"
+	"bank-system/internal/repository"
 )
 
 type Services struct {

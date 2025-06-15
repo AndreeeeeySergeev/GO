@@ -46,7 +46,6 @@ type CardPaymentRequest struct {
 	Amount float64 `json:"amount"`
 }
 
-// Для безопасного отображения номера карты (только последние 4 цифры)
 func MaskCardNumber(number string) string {
 	if len(number) < 4 {
 		return "****"

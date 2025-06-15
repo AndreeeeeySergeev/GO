@@ -6,8 +6,8 @@ import (
 
 	"github.com/golang-jwt/jwt/v5"
 
-	"bank-service/internal/models"
-	"bank-service/internal/repository"
+	"bank-system/bank-service/internal/models"
+	"bank-system/internal/repository"
 )
 
 var (

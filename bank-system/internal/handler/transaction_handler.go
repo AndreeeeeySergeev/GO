@@ -6,8 +6,8 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"bank-service/internal/middleware"
-	"bank-service/internal/service"
+	"bank-system/internal/middleware"
+	"bank-system/internal/service"
 )
 
 func (h *Handler) GetUserTransactions(w http.ResponseWriter, r *http.Request) {
@@ -64,7 +64,7 @@ func (h *Handler) GetAccountTransactions(w http.ResponseWriter, r *http.Request)
 }
 
 func getPaginationParams(r *http.Request) (limit, offset int) {
-	limit = 10 // Значение по умолчанию
+	limit = 10
 	offset = 0
 
 	if limitParam := r.URL.Query().Get("limit"); limitParam != "" {

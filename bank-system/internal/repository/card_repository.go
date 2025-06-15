@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"errors"
 
-	"bank-service/internal/models"
+	"bank-system/internal/models"
 )
 
 type CardRepository interface {

@@ -6,7 +6,7 @@ import (
 
 	_ "github.com/lib/pq"
 
-	"bank-service/internal/config"
+	"bank-system/internal/config"
 )
 
 func NewPostgresDB(cfg config.DatabaseConfig) (*sql.DB, error) {

@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"time"
 
-	"bank-service/internal/models"
+	"bank-system/internal/models"
 )
 
 type PaymentRepository interface {

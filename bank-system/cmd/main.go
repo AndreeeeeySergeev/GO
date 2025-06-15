@@ -10,13 +10,13 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"bank-service/internal/config"
-	"bank-service/internal/handler"
-	"bank-service/internal/middleware"
-	"bank-service/internal/repository"
-	"bank-service/internal/scheduler"
-	"bank-service/internal/service"
-	"bank-service/pkg/logger"
+	"bank-system/internal/config"
+	"bank-system/internal/handler"
+	"bank-system/internal/middleware"
+	"bank-system/internal/repository"
+	"bank-system/internal/scheduler"
+	"bank-system/internal/service"
+	"bank-system/pkg/logger"
 )
 
 func main() {
@@ -24,12 +24,12 @@ func main() {
 
 	cfg, err := config.LoadConfig()
 	if err != nil {
-		log.Fatalf("Failed to load config: %v", err)
+		log.Fatalf("Ошибка загрузки: %v", err)
 	}
 
 	db, err := repository.NewPostgresDB(cfg.Database)
 	if err != nil {
-		log.Fatalf("Failed to connect to database: %v", err)
+		log.Fatalf("Ошибка подключения к базе данных: %v", err)
 	}
 	defer db.Close()
 
@@ -57,7 +57,6 @@ func main() {
 	handlers.RegisterRoutes(router)
 
 	creditScheduler := scheduler.NewCreditScheduler(services.Credit, log)
-	go creditScheduler.Start(12 * time.Hour) // Проверка каждые 12 часов
 
 	server := &http.Server{
 		Addr:         ":" + cfg.Server.Port,
@@ -67,9 +66,9 @@ func main() {
 	}
 
 	go func() {
-		log.Infof("Starting server on port %s", cfg.Server.Port)
+		log.Infof("Запуск сервера %s", cfg.Server.Port)
 		if err := server.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalf("Failed to start server: %v", err)
+			log.Fatalf("Ошибка запуска сервера: %v", err)
 		}
 	}()
 
@@ -77,7 +76,7 @@ func main() {
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
 
-	log.Info("Shutting down server...")
+	log.Info("Выключение сервера...")
 
 	creditScheduler.Stop()
 
@@ -85,8 +84,8 @@ func main() {
 	defer cancel()
 
 	if err := server.Shutdown(ctx); err != nil {
-		log.Fatalf("Server forced to shutdown: %v", err)
+		log.Fatalf("Сервер выключен принудительно: %v", err)
 	}
 
-	log.Info("Server exited properly")
+	log.Info("Сервер выключен без ошибок")
 }

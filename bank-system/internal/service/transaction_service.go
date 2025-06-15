@@ -1,8 +1,8 @@
 package service
 
 import (
-	"bank-service/internal/models"
-	"bank-service/internal/repository"
+	"bank-system/internal/models"
+	"bank-system/internal/repository"
 )
 
 type TransactionService interface {

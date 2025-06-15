@@ -6,7 +6,7 @@ import (
 
 	"gopkg.in/gomail.v2"
 
-	"bank-service/internal/config"
+	"bank-system/internal/config"
 )
 
 type EmailService interface {
