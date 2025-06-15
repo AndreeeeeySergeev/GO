@@ -1,0 +1,17 @@
+version: '3'
+services:
+  psql:
+    image: postgres:latest
+    container_name: psql
+    ports:
+      - "5432:5432"
+    restart: on-failure
+    environment:
+      - POSTGRES_DB=bank_service
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - database_data:/var/lib/postgresql/data/
+
+volumes:
+  database_data:
